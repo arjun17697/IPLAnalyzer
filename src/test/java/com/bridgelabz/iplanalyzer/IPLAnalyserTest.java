@@ -50,6 +50,12 @@ public class IPLAnalyserTest {
 	@Test
 	public void givenIPLDataShouldReturnMaxSixFourWithBestSR() throws AnalyserException, CsvException {
 		List<IPLBatting> sortedListByBoundary = iplAnalyser.getBestSRwithSixesFours(IPL_BATTING);
-		assertEquals("Andre Russel", sortedListByBoundary.get(0).getPlayer());
+		assertEquals("Andre Russell", sortedListByBoundary.get(0).getPlayer());
+	}
+	
+	@Test
+	public void givenIPLDataShouldReturnBestAvgwithBestSR() throws AnalyserException, CsvException {
+		List<IPLBatting> sortedListByBoundary = iplAnalyser.getBestAvgWithBestSR(IPL_BATTING);
+		assertEquals("MS Dhoni", sortedListByBoundary.get(0).getPlayer());
 	}
 }
