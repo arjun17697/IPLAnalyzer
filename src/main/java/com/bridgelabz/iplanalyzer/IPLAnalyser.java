@@ -54,4 +54,13 @@ public class IPLAnalyser {
 		Double.parseDouble(((IPLBatting) b).getAverage())).reversed())
 				.collect(Collectors.toList());
 	}
+
+	public List<IPLBatting> getBestAvgWithMaxRuns(String csvFilePath) throws CsvException, AnalyserException {
+		iplBattingList = sortByBattingAvgDesc(csvFilePath);	
+		Comparator<IPLBatting> a =Comparator.comparing(IPLBatting::getRuns)
+				.thenComparing(Comparator.comparing(IPLBatting::getAverage)).reversed();
+		return iplBattingList.stream().sorted(a)
+				.collect(Collectors.toList());
+	}
+
 }

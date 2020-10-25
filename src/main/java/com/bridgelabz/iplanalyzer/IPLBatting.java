@@ -64,4 +64,9 @@ public class IPLBatting {
 	public String getPlayer() {
 		return player;
 	}
+	
+	public int getRuns() {
+		return runs;
+	}
+	
 }

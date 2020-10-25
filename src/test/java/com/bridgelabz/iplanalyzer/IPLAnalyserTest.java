@@ -58,4 +58,10 @@ public class IPLAnalyserTest {
 		List<IPLBatting> sortedListByBoundary = iplAnalyser.getBestAvgWithBestSR(IPL_BATTING);
 		assertEquals("MS Dhoni", sortedListByBoundary.get(0).getPlayer());
 	}
+	
+	@Test
+	public void givenIPLDataShouldReturnCricketerWithMaxRunsandBestAvg() throws AnalyserException, CsvException {
+		List<IPLBatting> sortedListByAvg = iplAnalyser.getBestAvgWithMaxRuns(IPL_BATTING);
+		assertEquals("David Warner", sortedListByAvg.get(0).getPlayer());
+	}
 }
