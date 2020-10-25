@@ -16,7 +16,7 @@ import com.opencsv.exceptions.CsvException;
  */
 public class IPLAnalyserTest 
 {
-	private static final String IPL_BATTING = "C:/Users/HP LAP/Desktop/BridgeLabz/IPLAnalyzer/iplanalyzer/src/resources/WP DP Data_01 IPL2019FactsheetMostRuns.csv";
+	private static final String IPL_BATTING = "C:/Users/HP LAP/Desktop/BridgeLabz/IPLAnalyzer/iplanalyzer/src/resources/IPL2019FactsheetMostRuns.csv";
 	IPLAnalyser iplAnalyser;
 	
 	@Before
@@ -28,6 +28,6 @@ public class IPLAnalyserTest
     public void givenIPLDataShouldReturnNoOfRecords() throws AnalyserException, CsvException
     {
     	List<IPLBatting> highestBattingAvg=iplAnalyser.sortByBattingAvgDesc(IPL_BATTING);
-    	assertEquals("83.2",highestBattingAvg.get(0).average);
+    	assertEquals("83.2",highestBattingAvg.get(0).getAverage());
     }
 }

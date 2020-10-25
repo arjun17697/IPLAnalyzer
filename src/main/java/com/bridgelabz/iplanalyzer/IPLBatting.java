@@ -38,4 +38,13 @@ public class IPLBatting {
 				+ ", ballFaced=" + ballFaced + ", strikeRate=" + strikeRate + ", century=" + century + ", halfCentury="
 				+ halfCentury + ", fours=" + fours + ", sixes=" + sixes + "]";
 	}
+	
+	public String getAverage() {
+		try {
+			Double.parseDouble(average);
+			return average;
+		} catch (NumberFormatException e) {
+			return "0";
+		}
+	}
 }
