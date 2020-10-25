@@ -25,4 +25,13 @@ public class IPLAnalyser {
 				reversed()).collect(Collectors.toList());
 	}
 
+
+	public List<IPLBatting> sortByStrikeRateDesc(String csvFilePath) throws CsvException, AnalyserException {
+		iplBattingList=csvFileLoader.loadBattingStats(csvFilePath);
+		return iplBattingList.
+				stream().sorted(Comparator
+						.comparing(IPLBatting::getStrikeRate).
+				reversed()).collect(Collectors.toList());
+	}
+
 }

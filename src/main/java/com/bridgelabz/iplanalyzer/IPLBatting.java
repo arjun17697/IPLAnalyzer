@@ -47,4 +47,9 @@ public class IPLBatting {
 			return "0";
 		}
 	}
+
+	public double getStrikeRate() {
+		// TODO Auto-generated method stub
+		return strikeRate;
+	}
 }

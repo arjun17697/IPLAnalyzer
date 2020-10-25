@@ -25,9 +25,16 @@ public class IPLAnalyserTest
 	}
 	
     @Test
-    public void givenIPLDataShouldReturnNoOfRecords() throws AnalyserException, CsvException
+    public void givenIPLDataShouldReturnMaxAvg() throws AnalyserException, CsvException
     {
     	List<IPLBatting> highestBattingAvg=iplAnalyser.sortByBattingAvgDesc(IPL_BATTING);
     	assertEquals("83.2",highestBattingAvg.get(0).getAverage());
+    }
+    
+    @Test
+    public void givenIPLDataShouldReturnMaxSR() throws AnalyserException, CsvException
+    {
+    	List<IPLBatting> sortedBySRList=iplAnalyser.sortByStrikeRateDesc(IPL_BATTING);
+    	assertEquals(333.33,sortedBySRList.get(0).getStrikeRate(),0);
     }
 }
