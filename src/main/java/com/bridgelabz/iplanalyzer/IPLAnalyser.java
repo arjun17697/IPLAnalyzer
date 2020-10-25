@@ -34,4 +34,22 @@ public class IPLAnalyser {
 				reversed()).collect(Collectors.toList());
 	}
 
+
+	public List<IPLBatting> sortBySixesDesc(String csvFilePath) throws CsvException, AnalyserException {
+		iplBattingList=csvFileLoader.loadBattingStats(csvFilePath);
+		return iplBattingList.
+				stream().sorted(Comparator
+						.comparing(IPLBatting::getSixes).
+				reversed()).collect(Collectors.toList());
+	}
+
+
+	public List<IPLBatting> sortByFoursDesc(String csvFilePath) throws CsvException, AnalyserException {
+		iplBattingList=csvFileLoader.loadBattingStats(csvFilePath);
+		return iplBattingList.
+				stream().sorted(Comparator
+						.comparing(IPLBatting::getFours).
+				reversed()).collect(Collectors.toList());
+	}
+
 }

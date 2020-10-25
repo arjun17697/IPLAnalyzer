@@ -49,7 +49,18 @@ public class IPLBatting {
 	}
 
 	public double getStrikeRate() {
-		// TODO Auto-generated method stub
 		return strikeRate;
+	}
+
+	public int getSixes() {
+		return sixes;
+	}
+
+	public int getFours() {
+		return fours;
+	}
+
+	public String getPlayer() {
+		return player;
 	}
 }

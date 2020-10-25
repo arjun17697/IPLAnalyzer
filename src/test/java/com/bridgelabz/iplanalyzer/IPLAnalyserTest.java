@@ -37,4 +37,19 @@ public class IPLAnalyserTest
     	List<IPLBatting> sortedBySRList=iplAnalyser.sortByStrikeRateDesc(IPL_BATTING);
     	assertEquals(333.33,sortedBySRList.get(0).getStrikeRate(),0);
     }
+    
+    @Test
+    public void givenIPLDataShouldReturnMaxSixHitter() throws AnalyserException, CsvException
+    {
+    	List<IPLBatting> sortedBySixes=iplAnalyser.sortBySixesDesc(IPL_BATTING);
+    	assertEquals("Andre Russell",sortedBySixes.get(0).getPlayer());
+    }
+    
+    @Test
+    public void givenIPLDataShouldReturnMaxFourHitter() throws AnalyserException, CsvException
+    {
+    	List<IPLBatting> sortedBySixes=iplAnalyser.sortByFoursDesc(IPL_BATTING);
+    	assertEquals("Shikhar Dhawan",sortedBySixes.get(0).getPlayer());
+    }
 }
+
