@@ -16,6 +16,7 @@ import com.opencsv.exceptions.CsvException;
  */
 public class IPLAnalyserTest {
 	private static final String IPL_BATTING = "C:/Users/HP LAP/Desktop/BridgeLabz/IPLAnalyzer/iplanalyzer/src/resources/IPL2019FactsheetMostRuns.csv";
+	private static final String IPL_BOWLING = "C:/Users/HP LAP/Desktop/BridgeLabz/IPLAnalyzer/iplanalyzer/src/resources/IPL2019FactsheetMostWkts.csv";;
 	IPLAnalyser iplAnalyser;
 
 	@Before
@@ -62,6 +63,13 @@ public class IPLAnalyserTest {
 	@Test
 	public void givenIPLDataShouldReturnCricketerWithMaxRunsandBestAvg() throws AnalyserException, CsvException {
 		List<IPLBatting> sortedListByAvg = iplAnalyser.getBestAvgWithMaxRuns(IPL_BATTING);
-		assertEquals("David Warner", sortedListByAvg.get(0).getPlayer());
+		assertEquals("David Warner ", sortedListByAvg.get(0).getPlayer());
 	}
+	
+	@Test
+	public void givenIPLBolwingDataShouldReturnMaxAvg() throws AnalyserException, CsvException {
+		List<IPLBowling> highestBowlingAvg = iplAnalyser.sortByBowlingAvgDesc(IPL_BOWLING);
+		assertEquals("166", highestBowlingAvg.get(0).getAverage());
+	}
+
 }

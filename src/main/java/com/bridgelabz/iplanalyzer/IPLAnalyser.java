@@ -9,6 +9,7 @@ import com.opencsv.exceptions.CsvException;
 
 public class IPLAnalyser {
 	private List<IPLBatting> iplBattingList;
+	private List<IPLBowling> iplBowlingList;
 	private CsvFileLoader csvFileLoader;
 
 	public IPLAnalyser() {
@@ -60,6 +61,14 @@ public class IPLAnalyser {
 		Comparator<IPLBatting> a =Comparator.comparing(IPLBatting::getRuns)
 				.thenComparing(Comparator.comparing(IPLBatting::getAverage)).reversed();
 		return iplBattingList.stream().sorted(a)
+				.collect(Collectors.toList());
+	}
+
+	public List<IPLBowling> sortByBowlingAvgDesc(String csvFilePath) throws AnalyserException, CsvException {
+		iplBowlingList = csvFileLoader.loadBowlingStats(csvFilePath);
+		return iplBowlingList
+				.stream().sorted(Comparator
+						.comparing(bowling -> Double.parseDouble(((IPLBowling) bowling).getAverage())).reversed())
 				.collect(Collectors.toList());
 	}
 
