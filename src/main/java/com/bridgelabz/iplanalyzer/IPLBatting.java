@@ -44,8 +44,9 @@ public class IPLBatting {
 			Double.parseDouble(average);
 			return average;
 		} catch (NumberFormatException e) {
-			return "0";
+			average="0";
 		}
+		return average;
 	}
 
 	public double getStrikeRate() {
