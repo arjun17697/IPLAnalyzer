@@ -71,5 +71,10 @@ public class IPLAnalyserTest {
 		List<IPLBowling> highestBowlingAvg = iplAnalyser.sortByBowlingAvgDesc(IPL_BOWLING);
 		assertEquals("11", highestBowlingAvg.get(0).getAverage());
 	}
-
+	
+	@Test
+	public void givenIPLBolwingDataShouldReturnMaxSR() throws AnalyserException, CsvException {
+		List<IPLBowling> highestBowlingSR = iplAnalyser.sortByBowlingSRDesc(IPL_BOWLING);
+		assertEquals("16.75", highestBowlingSR.get(0).getAverage());
+	}
 }
