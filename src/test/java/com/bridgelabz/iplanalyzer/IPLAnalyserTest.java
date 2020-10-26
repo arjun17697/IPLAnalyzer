@@ -83,4 +83,10 @@ public class IPLAnalyserTest {
 		List<IPLBowling> highestBowlingEconomy = iplAnalyser.sortByBowlingEconomyDesc(IPL_BOWLING);
 		assertEquals("Shivam Dube", highestBowlingEconomy.get(0).getPlayer());
 	}
+	
+	@Test
+	public void givenIPLBolwingDataShouldReturnPlayerHavingBestSRWith5w4w() throws AnalyserException, CsvException {
+		List<IPLBowling> bestSRwith4w5w = iplAnalyser.sortByBestSRWith4w5w(IPL_BOWLING);
+		assertEquals("Kagiso Rabada", bestSRwith4w5w.get(0).getPlayer());
+	}
 }

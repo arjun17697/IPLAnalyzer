@@ -86,4 +86,12 @@ public class IPLAnalyser {
 				.stream().sorted(Comparator.comparing(IPLBowling::getEconomy))
 				.collect(Collectors.toList());
 	}
+
+	public List<IPLBowling> sortByBestSRWith4w5w(String csvFilePath) throws AnalyserException, CsvException {
+		iplBowlingList = sortByBowlingSRDesc(csvFilePath);	
+		Comparator<IPLBowling> a =Comparator.comparing(IPLBowling::getFourandFiveWickets).reversed()
+				.thenComparing(Comparator.comparing(IPLBowling::getStrikeRate));
+		return iplBowlingList.stream().sorted(a)
+				.collect(Collectors.toList());
+	}
 }

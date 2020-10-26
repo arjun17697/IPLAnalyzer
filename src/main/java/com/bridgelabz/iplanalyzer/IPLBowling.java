@@ -93,6 +93,10 @@ public class IPLBowling {
 	public int getFiveWickets() {
 		return fiveWickets;
 	}
+	
+	public int getFourandFiveWickets() {
+		return fourWickets*4+ fiveWickets*5;
+	}
 
 	@Override
 	public String toString() {
