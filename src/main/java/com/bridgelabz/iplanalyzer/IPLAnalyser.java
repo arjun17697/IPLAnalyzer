@@ -102,4 +102,12 @@ public class IPLAnalyser {
 		return iplBowlingList.stream().sorted(a)
 				.collect(Collectors.toList());
 	}
+
+	public List<IPLBowling> sortByMaxWktsWithGreatAvg(String csvFilePath) throws AnalyserException, CsvException {
+		iplBowlingList = sortByBowlingAvgDesc(csvFilePath);	
+		Comparator<IPLBowling> a =Comparator.comparing(IPLBowling::getWickets).reversed()
+				.thenComparing(Comparator.comparing(IPLBowling::getAverage));
+		return iplBowlingList.stream().sorted(a)
+				.collect(Collectors.toList());
+	}
 }

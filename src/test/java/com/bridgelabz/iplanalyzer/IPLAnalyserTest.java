@@ -95,4 +95,10 @@ public class IPLAnalyserTest {
 		List<IPLBowling> bestSRwithGreatAvg = iplAnalyser.sortByBestSRWithGreatAvg(IPL_BOWLING);
 		assertEquals("Alzarri Joseph", bestSRwithGreatAvg.get(0).getPlayer());
 	}
+	
+	@Test
+	public void givenIPLBolwingDataShouldReturnPlayerWithGreatAvgWhotookMaxWickets() throws AnalyserException, CsvException {
+		List<IPLBowling> maxWicketswithGreatAvg = iplAnalyser.sortByMaxWktsWithGreatAvg(IPL_BOWLING);
+		assertEquals("Imran Tahir", maxWicketswithGreatAvg.get(0).getPlayer());
+	}
 }
