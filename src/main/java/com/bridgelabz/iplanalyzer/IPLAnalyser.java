@@ -68,7 +68,7 @@ public class IPLAnalyser {
 		iplBowlingList = csvFileLoader.loadBowlingStats(csvFilePath);
 		return iplBowlingList
 				.stream().sorted(Comparator
-						.comparing(bowling -> Double.parseDouble(((IPLBowling) bowling).getAverage())).reversed())
+						.comparing(bowling -> Double.parseDouble(((IPLBowling) bowling).getAverage())))
 				.collect(Collectors.toList());
 	}
 

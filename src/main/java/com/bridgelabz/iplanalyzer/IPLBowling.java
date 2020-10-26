@@ -64,10 +64,11 @@ public class IPLBowling {
 
 	public String getAverage() {
 
-		/*
-		 * try { Double.parseDouble(average); } catch (NumberFormatException e) { return
-		 * "1000000"; }
-		 */
+		try {
+			Double.parseDouble(average);
+		} catch (NumberFormatException e) {
+			return "1000000";
+		}
 
 		return average;
 	}
