@@ -89,4 +89,10 @@ public class IPLAnalyserTest {
 		List<IPLBowling> bestSRwith4w5w = iplAnalyser.sortByBestSRWith4w5w(IPL_BOWLING);
 		assertEquals("Kagiso Rabada", bestSRwith4w5w.get(0).getPlayer());
 	}
+	
+	@Test
+	public void givenIPLBolwingDataShouldReturnPlayerHavingBestSRWithGreatAvg() throws AnalyserException, CsvException {
+		List<IPLBowling> bestSRwithGreatAvg = iplAnalyser.sortByBestSRWithGreatAvg(IPL_BOWLING);
+		assertEquals("Alzarri Joseph", bestSRwithGreatAvg.get(0).getPlayer());
+	}
 }
