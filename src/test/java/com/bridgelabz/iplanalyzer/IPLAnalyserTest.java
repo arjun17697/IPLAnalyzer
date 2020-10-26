@@ -53,28 +53,34 @@ public class IPLAnalyserTest {
 		List<IPLBatting> sortedListByBoundary = iplAnalyser.getBestSRwithSixesFours(IPL_BATTING);
 		assertEquals("Andre Russell", sortedListByBoundary.get(0).getPlayer());
 	}
-	
+
 	@Test
 	public void givenIPLDataShouldReturnBestAvgwithBestSR() throws AnalyserException, CsvException {
 		List<IPLBatting> sortedListByBoundary = iplAnalyser.getBestAvgWithBestSR(IPL_BATTING);
 		assertEquals("MS Dhoni", sortedListByBoundary.get(0).getPlayer());
 	}
-	
+
 	@Test
 	public void givenIPLDataShouldReturnCricketerWithMaxRunsandBestAvg() throws AnalyserException, CsvException {
 		List<IPLBatting> sortedListByAvg = iplAnalyser.getBestAvgWithMaxRuns(IPL_BATTING);
 		assertEquals("David Warner ", sortedListByAvg.get(0).getPlayer());
 	}
-	
+
 	@Test
 	public void givenIPLBolwingDataShouldReturnMaxAvg() throws AnalyserException, CsvException {
 		List<IPLBowling> highestBowlingAvg = iplAnalyser.sortByBowlingAvgDesc(IPL_BOWLING);
 		assertEquals("11", highestBowlingAvg.get(0).getAverage());
 	}
-	
+
 	@Test
 	public void givenIPLBolwingDataShouldReturnMaxSR() throws AnalyserException, CsvException {
 		List<IPLBowling> highestBowlingSR = iplAnalyser.sortByBowlingSRDesc(IPL_BOWLING);
-		assertEquals("16.75", highestBowlingSR.get(0).getAverage());
+		assertEquals("10.75", highestBowlingSR.get(0).getStrikeRate());
+	}
+
+	@Test
+	public void givenIPLBolwingDataShouldReturnPlayerHavingBestEconomy() throws AnalyserException, CsvException {
+		List<IPLBowling> highestBowlingEconomy = iplAnalyser.sortByBowlingEconomyDesc(IPL_BOWLING);
+		assertEquals("Shivam Dube", highestBowlingEconomy.get(0).getPlayer());
 	}
 }
