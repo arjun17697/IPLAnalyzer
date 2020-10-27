@@ -110,4 +110,11 @@ public class IPLAnalyser {
 		return iplBowlingList.stream().sorted(a)
 				.collect(Collectors.toList());
 	}
+
+	public List<IPLAllRounder> sortAllrounderData(String batsmanFilePath, String bowlerFilePath) throws AnalyserException, CsvException {
+		List<IPLAllRounder> iplAllRounderList=csvFileLoader.loadStats(batsmanFilePath, bowlerFilePath);
+				return iplAllRounderList.stream().
+						sorted(Comparator.comparing(IPLAllRounder::getPerformanceByAverage).reversed())
+						.collect(Collectors.toList());
+	}
 }

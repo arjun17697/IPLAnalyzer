@@ -18,6 +18,7 @@ public class IPLAnalyserTest {
 	private static final String IPL_BATTING = "C:/Users/HP LAP/Desktop/BridgeLabz/IPLAnalyzer/iplanalyzer/src/resources/IPL2019FactsheetMostRuns.csv";
 	private static final String IPL_BOWLING = "C:/Users/HP LAP/Desktop/BridgeLabz/IPLAnalyzer/iplanalyzer/src/resources/IPL2019FactsheetMostWkts.csv";
 	IPLAnalyser iplAnalyser;
+	List<IPLAllRounder> sortedAllrounderList;
 
 	@Before
 	public void initialzier() {
@@ -100,5 +101,11 @@ public class IPLAnalyserTest {
 	public void givenIPLBolwingDataShouldReturnPlayerWithGreatAvgWhotookMaxWickets() throws AnalyserException, CsvException {
 		List<IPLBowling> maxWicketswithGreatAvg = iplAnalyser.sortByMaxWktsWithGreatAvg(IPL_BOWLING);
 		assertEquals("Imran Tahir", maxWicketswithGreatAvg.get(0).getPlayer());
+	}
+	
+	@Test
+	public void givenIPLDataShouldReturnAllRounder() throws AnalyserException, CsvException{
+		sortedAllrounderList=iplAnalyser.sortAllrounderData(IPL_BATTING,IPL_BOWLING);
+		assertEquals("Andre Russell",sortedAllrounderList.get(0).getPlayer());
 	}
 }
