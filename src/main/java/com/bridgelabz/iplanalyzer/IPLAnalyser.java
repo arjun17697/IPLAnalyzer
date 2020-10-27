@@ -127,4 +127,17 @@ public class IPLAnalyser {
 				.thenComparing(Comparator.comparing(IPLBatting::getAverage)).reversed();
 		return iplBattingList.stream().sorted(a).collect(Collectors.toList());
 	}
+	
+	public List<IPLBatting> getBestAvgWithNoCenturyOrHalfCentuty(String csvFilePath) throws CsvException, AnalyserException {
+		iplBattingList = csvFileLoader.loadBattingStats(csvFilePath);
+		final Comparator<Object> a=Comparator.comparing(b -> {
+			if (((IPLBatting) b).getCentury() + ((IPLBatting) b).getHalfCentury() == 0)
+				return Double.parseDouble(((IPLBatting) b).getAverage());
+			else
+				return 0.0;
+		}).reversed();
+		return iplBattingList
+			.stream().sorted(a).collect(Collectors.toList());
+	}
+	
 }

@@ -73,4 +73,7 @@ public class IPLBatting {
 		return century;
 	}
 	
+	public int getHalfCentury() {
+		return halfCentury;
+	}
 }

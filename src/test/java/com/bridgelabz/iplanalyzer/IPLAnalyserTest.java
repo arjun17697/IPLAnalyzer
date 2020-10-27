@@ -120,4 +120,10 @@ public class IPLAnalyserTest {
 		List<IPLBatting> sortedListByAvgand100s = iplAnalyser.getBestAvgWithMax100s(IPL_BATTING);
 		assertEquals("David Warner ", sortedListByAvgand100s.get(0).getPlayer());
 	}
+	
+	@Test
+	public void givenIPLBattingData_sortByBestAvgWithNoCenturyAndHalfCentury_ShouldReturnBatsmen() throws CsvException, AnalyserException {
+		List<IPLBatting> sortedBattingList = iplAnalyser.getBestAvgWithNoCenturyOrHalfCentuty(IPL_BATTING);	
+		assertEquals("Marcus Stoinis", sortedBattingList.get(0).getPlayer());
+	}
 }
