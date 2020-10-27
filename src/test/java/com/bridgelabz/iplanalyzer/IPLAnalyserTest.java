@@ -108,4 +108,10 @@ public class IPLAnalyserTest {
 		sortedAllrounderList=iplAnalyser.sortAllrounderData(IPL_BATTING,IPL_BOWLING);
 		assertEquals("Andre Russell",sortedAllrounderList.get(0).getPlayer());
 	}
+	
+	@Test
+	public void givenIPLDataShouldReturnBestAllRounder() throws AnalyserException, CsvException{
+		sortedAllrounderList=iplAnalyser.sortBestAllrounderData(IPL_BATTING,IPL_BOWLING);
+		assertEquals("Hardik Pandya",sortedAllrounderList.get(0).getPlayer());
+	}
 }
