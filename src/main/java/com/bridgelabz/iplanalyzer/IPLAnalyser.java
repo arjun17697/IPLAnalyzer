@@ -120,4 +120,11 @@ public class IPLAnalyser {
 				.sorted(Comparator.comparing(IPLAllRounder::getPerformanceByRunsAndWickets).reversed())
 				.collect(Collectors.toList());
 	}
+
+	public List<IPLBatting> getBestAvgWithMax100s(String csvFilePath) throws CsvException, AnalyserException {
+		iplBattingList = sortByBattingAvgDesc(csvFilePath);
+		Comparator<IPLBatting> a = Comparator.comparing(IPLBatting::getCentury)
+				.thenComparing(Comparator.comparing(IPLBatting::getAverage)).reversed();
+		return iplBattingList.stream().sorted(a).collect(Collectors.toList());
+	}
 }

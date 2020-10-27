@@ -69,4 +69,8 @@ public class IPLBatting {
 		return runs;
 	}
 	
+	public int getCentury() {
+		return century;
+	}
+	
 }

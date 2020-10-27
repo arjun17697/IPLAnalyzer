@@ -114,4 +114,10 @@ public class IPLAnalyserTest {
 		sortedAllrounderList=iplAnalyser.sortBestAllrounderData(IPL_BATTING,IPL_BOWLING);
 		assertEquals("Hardik Pandya",sortedAllrounderList.get(0).getPlayer());
 	}
+	
+	@Test
+	public void givenIPLDataShouldReturnCricketerWithMax100sandBestAvg() throws AnalyserException, CsvException {
+		List<IPLBatting> sortedListByAvgand100s = iplAnalyser.getBestAvgWithMax100s(IPL_BATTING);
+		assertEquals("David Warner ", sortedListByAvgand100s.get(0).getPlayer());
+	}
 }
